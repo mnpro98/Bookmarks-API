@@ -67,7 +67,7 @@ const Bookmarks = {
 					return err;
 				});
 	},
-	patchBookmark : function(idsearch, updateQuery){
+	patchBookmark : function (idsearch, updateQuery){
 		return bookmarksCollection
 				.updateOne({id: idsearch}, { $set : updateQuery })
 				.then(updatedBookmark => {

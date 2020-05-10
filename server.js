@@ -4,13 +4,14 @@ const morgan = require('morgan');
 const uuid = require('uuid');
 const {Bookmarks} = require('./bookmarkModel');
 const mongoose = require('mongoose');
+const {DATABASE_URL, PORT} = require('./config');
 
 const apiKEY = "2abbf7c3-245b-404f-9473-ade729ed4653";
 
 const app = express();
-
 const jsonParser = bodyParser.json();
 
+app.use( express.static( "public" ));
 app.use( morgan( 'dev' ) );
 
 function middleware(req, res, next){
@@ -29,7 +30,7 @@ function validateApiKey (req, res, next){
 	} else if(req.headers['book-api-key'] === apiKEY){
 		next();
 	} else {
-		req.statusMessage = "No API key sent.";
+		req.statusMessage = "No API key sent or incorrect.";
 		return res.status(401).end();
 	}
 }
@@ -247,11 +248,11 @@ app.patch('/bookmark/:id', jsonParser, async(req, res) => {
 
 });
 
-app.listen( 8080, () => {
+app.listen( PORT, () => {
 	console.log("This server is running on port 8080");
 
 	new Promise(( resolve, reject) => {
-		mongoose.connect('mongodb://localhost/bookmarksdb', {useNewUrlParser: true, useUnifiedTopology: true}, (err) => {
+		mongoose.connect(DATABASE_URL, {useNewUrlParser: true, useUnifiedTopology: true}, (err) => {
 			if(err){
 				reject(err);
 			}
@@ -273,3 +274,4 @@ app.listen( 8080, () => {
 // GET endpoint with title parameter: http://localhost:8080/bookmark?title=value
 // POST endpoint: http://localhost:8080/bookmarks
 // DELETE endpoint: http://localhost:8080/bookmark/:id
+

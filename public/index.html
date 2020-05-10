@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta charset="utf-8">
 		<title>Bookmarks</title>
+		<link rel="stylesheet" type="text/css" href="./css/index.css">
 	</head>
 <body>
 	<header>
@@ -13,15 +15,15 @@
 		</div>
 		<div>
 			<form>
-				<label for="title">Title: </label>
-				<input type="text" name="title" id="title-input">
-				<label for="description">Description: </label>
-				<input type="text" name="description" id="description-input">
-				<label for="url">Url: </label>
-				<input type="text" name="url" id="url-input">
-				<label for="rating">Rating: </label>
-				<input type="text" name="rating" id="rating-input">
-				<button>Create</button>
+				<label for="title-input-post">Title: </label>
+				<input type="text" id="title-input-post">
+				<label for="description-input-post">Description: </label>
+				<input type="text" id="description-input-post">
+				<label for="url-input-post">Url: </label>
+				<input type="text" id="url-input-post">
+				<label for="rating-input-post">Rating: </label>
+				<input type="text" id="rating-input-post">
+				<button id="create-btn">Create</button>
 			</form>
 		</div>
 	</section>
@@ -31,9 +33,9 @@
 		</div>
 		<div>
 			<form>
-				<label for="id">Id: </label>
-				<input type="text" name="id" id="id-input">
-				<button>Delete</button>
+				<label for="id-input-delete">Id: </label>
+				<input type="text" id="id-input-delete">
+				<button id="delete-btn">Delete</button>
 			</form>
 		</div>
 	</section>
@@ -43,17 +45,17 @@
 		</div>
 		<div>
 			<form>
-				<label for="id">Id: </label>
-				<input type="text" name="id" id="id-input">
-				<label for="title">Title: </label>
-				<input type="text" name="title" id="title-input">
-				<label for="description">Description: </label>
-				<input type="text" name="description" id="description-input">
-				<label for="url">Url: </label>
-				<input type="text" name="url" id="url-input">
-				<label for="rating">Rating: </label>
-				<input type="text" name="rating" id="rating-input">
-				<button>Update</button>
+				<label for="id-input-update">Id search: </label>
+				<input type="text" id="id-input-update">
+				<label for="title-input-update">Title: </label>
+				<input type="text" id="title-input-update">
+				<label for="description-input-update">Description: </label>
+				<input type="text" id="description-input-update">
+				<label for="url-input-update">Url: </label>
+				<input type="text" id="url-input-update">
+				<label for="rating-input-update">Rating: </label>
+				<input type="text" id="rating-input-update">
+				<button id="update-btn">Update</button>
 			</form>
 		</div>
 	</section>
@@ -63,13 +65,14 @@
 		</div>
 		<div>
 			<form>
-				<label for="title">Title: </label>
-				<input type="text" name="title" id="title-input">
-				<button>Get</button>
+				<label for="title-input-get">Title: </label>
+				<input type="text" id="title-input-get">
+				<button id="get-btn">Get</button>
 			</form>
 		</div>
 	</section>
 	<section id = "bookmarks-section">
 	</section>
+	<script type="text/javascript" src="./js/index.js"></script>
 </body>
 </html>
